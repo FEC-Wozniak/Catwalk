@@ -239,7 +239,7 @@ class NewReviewModal extends React.Component {
                   <Errors errors={Object.values(this.state.errors)} />
                 </span>
                 {this.state.urlWindow && (
-                  <UrlWindow>
+                  <UrlWindow title="FEC-Wozniak: Select Images" onClose={() => { this.toggleUrlWindow(false); }}>
                     <h1 style={{fontFamily: 'Avenir Black' }}>Link your pictures here</h1>
                     <input type="text" style={{ ...textInputStyle }} name="image1" placeholder="Image URL here" value={this.state.image1} onChange={this.handleChange} style={{ width: '350px', borderColor: this.getColor('image1') }} /><br /><br />
                     <input type="text" style={{ ...textInputStyle }} name="image2" placeholder="Image URL here" value={this.state.image2} onChange={this.handleChange} style={{ width: '350px', borderColor: this.getColor('image2') }} /><br /><br />

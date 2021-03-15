@@ -12,6 +12,7 @@ class Helpfulness extends React.Component {
       report: false,
     };
     this.click = this.click.bind(this);
+    this.toggleWindow = this.toggleWindow.bind(this);
   }
 
   click(e) {
@@ -30,6 +31,10 @@ class Helpfulness extends React.Component {
     }
   }
 
+  toggleWindow(bool) {
+    this.setState({ report: bool });
+  }
+
   render() {
     let { count } = this.state;
     const { removeReview, index } = this.props;
@@ -40,7 +45,7 @@ class Helpfulness extends React.Component {
         <span> ({ count })    |    </span>
         <span name="report" className="helpful austinButtons" onClick = {this.click} style={{ textDecoration: 'underline' }}>Report</span>
         {this.state.report && (
-          <UrlWindow title="FEC-Wozniak: Report Abuse">
+          <UrlWindow title="FEC-Wozniak: Report Abuse" onClose={() => { this.toggleWindow(false); }}>
               <div>
                 <h1 style={{ fontFamily: 'Avenir Black' }}>Report abuse</h1>
                 <p style={{ fontFamily: 'Ariel' }}>If you find this content inappropriate
